@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/5ab58071a0.js"></script>
+    <title>Vacation Requests</title>
+</head>
+<body>
+<!--Navbar -->
+<div id="nav-placeholder">
+    <!-- js will include the navbar here -->
+</div>
+
+<!--Content -->
+<section class="p-5 pb-0">
+    <div class="container mt-5 ">
+        <div class="text-dark  mb-3 w-5">
+            <div class="row justify-content-between border-bottom pb-3">
+                <div class="col-lg-3 col-md-5 col-sm-12">
+                    <i class="fa-solid fa-list-check ms-2 mt-3 fa-2xl float-start" style="color:#198754;"></i>
+                    <h5 class="mt-1 ms-5">Vacation Requests</h5>
+                </div>
+                <div class="col-lg-9 col-md-7 col-sm-12">
+                    <div class="border border-b1 ps-2 pt-1 bg-white col-lg-3 col-sm-12 float-lg-end rounded-edges no-shadow">
+                        <i class="pb-1 fa fa-search" style="color:#198754;"></i>
+                        <input type="text" class="border-0" placeholder="Search...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="float-start checkbox select-all m-4">
+                <input id="all" type="checkbox"/>
+                <label for="all">Select all</label>
+            </div>
+            <i class="fa-solid fa-filter float-end m-4"></i>
+            <div id="card-container">
+                <!-- Card items will be dynamically generated here -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <nav aria-label="Page navigation example" class="m-5">
+        <ul class="pagination justify-content-center fw-bold">
+            <!-- Pagination items will be dynamically generated here -->
+        </ul>
+    </nav>
+</section>
+<script crossorigin="anonymous"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="common.js"></script>
+<script src="vacation_requests.js"></script>
+
+</body>
+</html>
