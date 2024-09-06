@@ -8,16 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = templateHtml;
             const template = tempDiv.querySelector('template');
-            document.body.appendChild(template);
             const container = document.getElementById('card-container');
 
             cardData.slice(0, 4).forEach(data => {
                 const clone = document.importNode(template.content, true);
                 clone.querySelector('img').src = data.imgSrc;
                 clone.querySelector('.card-title').textContent = data.name;
-                clone.querySelectorAll('.card-text p')[0].innerHTML += data.submittedOn;
-                clone.querySelectorAll('.card-text p')[1].innerHTML += data.duration;
-                clone.querySelectorAll('.card-text p')[2].innerHTML += data.salary;
+                let cardTexts = clone.querySelectorAll('.card-text p');
+                cardTexts[0].innerHTML += data.submittedOn;
+                cardTexts[1].innerHTML += data.duration;
+                cardTexts[2].innerHTML += data.salary;
                 container.appendChild(clone);
             });
         })
@@ -31,12 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.addEventListener('input', function() {
             const query = searchInput.value.toLowerCase();
             const cards = document.querySelectorAll('#card-container .card');
-            let visibleCount = 0;
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                if (text.includes(query) && visibleCount < 4) {
+                if (text.includes(query)) {
                     card.style.display = '';
-                    visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }
@@ -44,4 +42,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-

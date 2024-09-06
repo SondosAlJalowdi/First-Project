@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = templateHtml;
             const template = tempDiv.querySelector('template');
-            document.body.appendChild(template);
             const container = document.getElementById('card-container');
 
             //renders the cards based on the current page and the number of items per page
@@ -33,12 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const clone = document.importNode(template.content, true);
                     clone.querySelector('img').src = data.imgSrc;
                     clone.querySelector('.card-title').textContent = data.name;
-                    clone.querySelectorAll('.card-text p')[0].innerHTML += data.submittedOn;
-                    clone.querySelectorAll('.card-text p')[1].innerHTML += data.duration;
-                    clone.querySelectorAll('.card-text p')[2].innerHTML += data.salary;
-                    const checkbox = clone.querySelector('input[type="checkbox"]');
-                    checkbox.id = `box${start + index + 1}`;
-                    checkbox.nextElementSibling.setAttribute('for', `box${start + index + 1}`);
+                    let cardTexts = clone.querySelectorAll('.card-text p');
+                    cardTexts[0].innerHTML += data.submittedOn;
+                    cardTexts[1].innerHTML += data.duration;
+                    cardTexts[2].innerHTML += data.salary;
                     rowContainer.appendChild(clone);
                 });
             }
